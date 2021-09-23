@@ -5,15 +5,13 @@ def collect_leaves(tree):
             if(isinstance(i, int)):
                 result.append(i)
             elif(isinstance(i, list) or isinstance(i, dict)):
-                for j in collect_leaves(i):
-                    result.append(j)
+                result.extend(collect_leaves(i))
     elif(isinstance(tree, dict)):
         for i in tree:
             if(isinstance(tree[i], int)):
                 result.append(i)
             elif(isinstance(tree[i], list) or isinstance(tree[i], dict)):
-                for j in collect_leaves(tree[i]):
-                    result.append(j)
+                result.extend(collect_leaves(tree[i]))
     return result
 
 # print time
