@@ -1,18 +1,19 @@
-def collect_leaves(tree, result=None):
-    if result is None: 
-        result = []
+def collect_leaves(tree):
+    result = []
     if(isinstance(tree, list)):
         for i in tree:
             if(isinstance(i, int)):
                 result.append(i)
             elif(isinstance(i, list) or isinstance(i, dict)):
-                collect_leaves(i, result)
+                for j in collect_leaves(i):
+                    result.append(j)
     elif(isinstance(tree, dict)):
         for i in tree:
             if(isinstance(tree[i], int)):
                 result.append(i)
             elif(isinstance(tree[i], list) or isinstance(tree[i], dict)):
-                collect_leaves(tree[i], result)
+                for j in collect_leaves(tree[i]):
+                    result.append(j)
     return result
 
 # print time
