@@ -1,5 +1,5 @@
-def create_user(*identity, age=42, **kwargs):
-    return {"name": identity[0], "surname": identity[1], "age": age, "extra": kwargs}
+def create_user(name,surname, age=42, **kwargs):
+    return {"name": name, "surname": surname, "age": age, "extra": kwargs}
 
 # print time
 print(create_user("Marie", "Curie", age=66, occupation="physicist",
