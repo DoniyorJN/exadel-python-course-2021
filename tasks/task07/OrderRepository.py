@@ -11,7 +11,7 @@ class OrderRepository:
         for order in self.orders:
             if order.order_id == order_id:
                 return order
-        raise "Not Found"
+        return "Not Found"
 
     def list(self, n_latest: int = None):
         if n_latest == None:
