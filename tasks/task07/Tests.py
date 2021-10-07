@@ -1,20 +1,21 @@
-import OrderRepository, unittest
+from OrderRepository import *
+import unittest
 
 rep = None
 
-good1 = OrderRepository.Good(1,"apple", 10)
-good2 = OrderRepository.Good(2,"pineaplle", 50)
-good3 = OrderRepository.Good(3,"limon", 15)
-good4 = OrderRepository.Good(4,"mango", 60)
-good5 = OrderRepository.Good(5,"orange", 25)
+good1 = Good(1,"apple", 10)
+good2 = Good(2,"pineaplle", 50)
+good3 = Good(3,"limon", 15)
+good4 = Good(4,"mango", 60)
+good5 = Good(5,"orange", 25)
 
-order1 = OrderRepository.Order(1, "10/01/2021", 1, [good1])
-order2 = OrderRepository.Order(2, "11/01/2021", 5, [good1, good2])
-order3 = OrderRepository.Order(3, "12/01/2021", 3, [good1, good2, good3])
-order4 = OrderRepository.Order(4, "13/01/2021", 2, [good1, good2, good3, good4])
-order5 = OrderRepository.Order(5, "14/01/2021", 4, [good1, good2, good3, good4, good5])
+order1 = Order(1, 1, [good1])
+order2 = Order(2, 5, [good1, good2])
+order3 = Order(3, 3, [good1, good2, good3])
+order4 = Order(4, 2, [good1, good2, good3, good4])
+order5 = Order(5, 4, [good1, good2, good3, good4, good5])
 
-rep = OrderRepository.OrderRepository()
+rep = OrderRepository()
 
 rep.add(order1)
 rep.add(order2)
@@ -31,7 +32,7 @@ class Tests(unittest.TestCase):
 
     def test_add(self):  
         self.rep1 = None
-        self.rep1 = OrderRepository.OrderRepository()
+        self.rep1 = OrderRepository()
         self.rep1.add(order1)
         self.rep1.add(order2)
         self.rep1.add(order3)

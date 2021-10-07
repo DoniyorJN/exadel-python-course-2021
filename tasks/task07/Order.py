@@ -1,9 +1,9 @@
 from Good import *
-
+from datetime import date
 class Order:
-    def __init__(self, order_id : int, order_date: str, client_id: int, goods: list[Good] = []):
+    def __init__(self, order_id : int, client_id: int, goods: list[Good] = []):
         self.order_id = order_id
-        self.order_date = order_date
+        self.order_date = date.today();
         self.client_id = client_id
         self.goods = goods
         self.price = 0
