@@ -20,5 +20,5 @@ class ShapeCollection(Shape2D):
     def __str__(self) -> str:
         all_str: str = ""
         for shape in self._stores:
-            all_str += shape.__str__() + "\n"
+            all_str += str(shape) + "\n"
         return all_str
