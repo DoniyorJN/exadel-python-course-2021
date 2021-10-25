@@ -8,9 +8,15 @@ class Rectangle(Shape2D):
 
     def area(self) -> float:
        return self.width * self.length
- 
+    
+    def _xCoordinateRange(self, point: Point2D)-> bool:
+        return self.bottom_left.x <= point.x <= self.bottom_left.x + self.length
+    
+    def _yCoordinateRange(self,point: Point2D)-> bool:
+        return self.bottom_left.y - self.width <= point.y <= self.bottom_left.y
+    
     def __contains__(self, point: Point2D) -> bool:
-        if(self.bottom_left.x <= point.x <= self.bottom_left.x + self.length and self.bottom_left.y - self.width <= point.y <= self.bottom_left.y):
+        if(self._xCoordinateRange(point) and self._yCoordinateRange(point)):
             return True
         return False
  

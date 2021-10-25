@@ -13,7 +13,7 @@ class ShapeCollection(Shape2D):
     
     def __contains__(self, point: Point2D) -> bool:
         for shape in self._stores:
-            if shape.__contains__(point):
+            if point in shape:
                 return True
         return False
 
